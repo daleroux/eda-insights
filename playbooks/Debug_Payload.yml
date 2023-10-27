@@ -1,0 +1,16 @@
+---
+- name: Debug Payload
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  
+  tasks:
+    - name: Debug
+      ansible.builtin.debug:
+        var: my_payload
+
+    - name: Loop back into EDA
+      ansible.builtin.set_fact:
+        cacheable: yes
+        passed_once: "whatever"
+        regex_proc: done
